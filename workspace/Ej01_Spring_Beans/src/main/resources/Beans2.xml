@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Spring creara un objeto de la clase Cliente llamando al constructor por defecto -->
+	<bean id="cliente1" class="com.curso.modelo.entidad.Cliente"/>
+	
+	<!-- Inyectando valores en el constructor -->
+	<bean id="cliente2" class="com.curso.modelo.entidad.Cliente">
+		<constructor-arg value="8"/>
+		<constructor-arg value="Venancio"/>
+		<constructor-arg value="C/Talcual"/>
+		<constructor-arg value="15856"/>
+	</bean>
+	
+	<!-- Inyectando valores en las propiedades -->
+	<bean id="cliente3" class="com.curso.modelo.entidad.Cliente">
+		<property name="id" value="10"/>
+		<property name="nombre" value="Venancia"/>
+		<property name="direccion" value="C/Tal"/>
+		<property name="telefono" value="12356"/>
+	</bean>
+	
+	<!-- Inyectando referencias a objetos -->
+	
+	<!-- Inner bean -->
+	<bean id="cliente5" class="com.curso.modelo.entidad.Cliente">
+		<property name="id" value="10"/>
+		<property name="nombre" value="Venancia"/>
+		<property name="direccion" value="C/Tal"/>
+		<property name="telefono" value="12356"/>
+		<property name="datosBancarios">
+			<bean class="com.curso.modelo.entidad.DatosBancarios">
+				<property name="banco" value="HTb"/>
+				<property name="numeroCuenta" value="125632"/>
+			</bean>
+		</property>
+	</bean>
+	
+	
+	<!-- Referencia -->
+	<bean id="datosBancarios1" class="com.curso.modelo.entidad.DatosBancarios">
+		<property name="banco" value="Htb"/>
+		<property name="numeroCuenta" value="125632"/>
+	</bean>
+	<bean id="cliente4" class="com.curso.modelo.entidad.Cliente">
+		<property name="id" value="12"/>
+		<property name="nombre" value="Julia"/>
+		<property name="direccion" value="C/TalCualPim"/>
+		<property name="telefono" value="1238962"/>
+		<property name="datosBancarios" ref="datosBancarios1"/>
+	</bean>
+	
+	<!-- Scopes -->
+	
+	<!-- Singleton: por defecto - Por naturaleza no tienen estado, como GestorClienteDAO  -->
+	
+	<!-- Prototype -->
+	<bean id="cliente6" class="com.curso.modelo.entidad.Cliente" scope="singleton">	
+		<property name="nombre" value="Fry"/>
+	</bean>
+	<bean id="cliente7" class="com.curso.modelo.entidad.Cliente" scope="prototype">
+		<property name="nombre" value="Bender"/>
+	</bean>
+</beans>
