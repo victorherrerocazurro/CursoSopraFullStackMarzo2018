@@ -8,27 +8,7 @@
 </head>
 <body>
 
-${clave}
-
-<%
-
-String variable = (String)request.getAttribute("clave");
-
-for(int i = 0; i < 10; i++){
-%>
-
-<div>
-
-<%=i %>
-
-</div>
-
-<%
-}
-
-%>
-
-<%= variable%>
+${id}
 
 </body>
 </html>
