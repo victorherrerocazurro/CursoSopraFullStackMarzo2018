@@ -2,8 +2,11 @@ package com.curso.spring.web.mvc.front.dtos;
 
 import java.io.Serializable;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 public class Persona implements Serializable {
 
+	@NotBlank
 	private String nombre;
 	private String apellido;
 	

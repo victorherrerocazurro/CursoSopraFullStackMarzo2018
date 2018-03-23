@@ -9,13 +9,15 @@ public class PersonaServicioBasico implements PersonaServicio {
 
 	@Override
 	public long alta(Persona body) {
-		// TODO Auto-generated method stub
+
+		System.out.println("ALTA: En el servicio");
+		
 		return 0;
 	}
 
 	@Override
 	public void modificar(Persona body) {
-		// TODO Auto-generated method stub
+		System.out.println("MODIFICACION: En el servicio");
 
 	}
 
