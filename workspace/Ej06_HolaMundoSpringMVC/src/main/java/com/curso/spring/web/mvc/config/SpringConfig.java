@@ -6,6 +6,8 @@ import org.springframework.context.annotation.ComponentScans;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.curso.spring.web.mvc.back.servicios.PersonaServicio;
@@ -18,7 +20,13 @@ import com.curso.spring.web.mvc.back.servicios.PersonaServicioBasico;
 	@ComponentScan("com.curso.spring.web.mvc.front.controllers"),
 	@ComponentScan("com.curso.spring.web.mvc.back.servicios")
 })
-public class SpringConfig {
+public class SpringConfig extends WebMvcConfigurerAdapter{
+	
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		// TODO Auto-generated method stub
+		super.addResourceHandlers(registry);
+	}
 
 	@Bean
 	public ViewResolver internalResourceViewResolver() {

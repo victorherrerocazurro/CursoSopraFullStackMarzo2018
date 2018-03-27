@@ -1,0 +1,28 @@
+#Clave para identificar las distintas instancias del mismo microservicio
+spring:
+  application:
+    name: holamundo
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8888
+      failFast: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8084/eureka/
+
+server:
+  port: 8086
+ 
+ 
+endpoints:
+  refresh:
+    sensitive: false
+ 
+log:
+  level:
+    com.ejemplo.arquitectura.cloud: ERROR
+    
+loggin
