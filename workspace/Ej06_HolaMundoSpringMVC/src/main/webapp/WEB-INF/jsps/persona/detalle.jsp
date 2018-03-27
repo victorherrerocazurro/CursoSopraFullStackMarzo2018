@@ -10,6 +10,9 @@
 </head>
 <body>
 
+
+	<%=request.getAttribute("id") %>
+
 	${id}
 
 	<form:form modelAttribute="persona">
